@@ -240,6 +240,11 @@
         animation: ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
       }
     </style>
+    <style>
+      .input-style {
+        @apply w-full px-3 py-2 bg-white border rounded-lg border-neutral-300/70 dark:border-white/15 dark:bg-neutral-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent-500/40;
+      }
+    </style>
   </head>
 
   <body
@@ -1065,43 +1070,77 @@
       document
         .querySelectorAll("[data-animate]")
         .forEach((el) => revealObserver.observe(el));
-
     </script>
     <script>
       const form = document.getElementById("contactForm");
+      const toast = document.getElementById("toast");
 
-      form?.addEventListener("submit", function () {
-        // فرم پس از submit ریدایرکت میشه — اینو در حافظه ذخیره می‌کنیم
-        localStorage.setItem("toast", "sent");
-      });
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      window.addEventListener("DOMContentLoaded", () => {
-        const toast = localStorage.getItem("toast");
+        const formData = new FormData(form);
+        const jsonData = Object.fromEntries(formData);
 
-        if (toast === "sent") {
-          showToast("پیام شما با موفقیت ارسال شد 🎉", "success");
-          localStorage.removeItem("toast");
+        // Simple validation
+        if (!jsonData.name || !jsonData.email || !jsonData.message) {
+          showToast("لطفاً تمام فیلدها را پر کنید!", "error");
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            "https://formsubmit.co/ajax/foruozanfar2000f@gmail.com",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(jsonData),
+            }
+          );
+
+          if (response.ok) {
+            form.reset();
+            showToast("پیام با موفقیت ارسال شد! ✅", "success");
+          } else {
+            showToast("ارسال با خطا مواجه شد. دوباره امتحان کنید.", "error");
+          }
+        } catch (_) {
+          showToast("خطا در ارتباط با سرور.", "error");
         }
       });
 
-      function showToast(msg, type = "success") {
-        const toast = document.createElement("div");
-        toast.className =
-          "fixed top-6 right-6 z-50 px-5 py-3 rounded-xl shadow-lg text-sm text-white " +
-          (type === "success"
-            ? "bg-green-600"
-            : type === "error"
-            ? "bg-red-600"
-            : "bg-neutral-800");
-
-        toast.textContent = msg;
-        document.body.appendChild(toast);
+      function showToast(message, type = "success") {
+        toast.textContent = message;
+        toast.classList.remove("hidden");
+        toast.classList.add(type === "error" ? "bg-red-600" : "bg-green-600");
 
         setTimeout(() => {
           toast.classList.add("opacity-0");
-          setTimeout(() => toast.remove(), 600);
+          setTimeout(() => {
+            toast.classList.remove("bg-red-600", "bg-green-600", "opacity-0");
+            toast.classList.add("hidden");
+          }, 500);
         }, 4000);
       }
     </script>
+    <!-- Toast -->
+    <div
+      id="toast"
+      class="hidden fixed top-6 right-6 z-50 px-4 py-3 rounded-xl shadow-lg text-sm font-medium text-white bg-green-600 flex items-center gap-2 transition-opacity duration-300"
+    >
+      <svg
+        class="w-5 h-5 animate-bounce"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 13l4 4L19 7"
+        />
+      </svg>
+      پیام با موفقیت ارسال شد!
+    </div>
   </body>
 </html>
