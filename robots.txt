@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://farzadforouzanfar.ir/sitemap.xml

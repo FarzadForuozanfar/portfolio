@@ -3,11 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>فرزاد فروزان فر — توسعه‌دهنده فول‌استک</title>
-    <meta
-      name="description"
-      content="فرزاد فروزانفر | توسعه‌دهنده فول‌استک با تمرکز بر ساخت وب‌اپ‌های سریع، بسیار امن و مقیاس‌پذیر. رزومه، مهارت‌ها، پروژه‌ها و راه‌های ارتباطی."
-    />
+    <title>فرزاد فروزان فر — Farzad Forouzanfar</title>
+    keywords
     <meta name="color-scheme" content="dark light" />
     <meta
       name="theme-color"
@@ -26,6 +23,46 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Farzad Forouzanfar",
+        "jobTitle": "Full Stack Developer",
+        "url": "https://farzadforouzanfar.ir",
+        "sameAs": ["https://www.linkedin.com/in/farzad-forouzanfar-a1773b225"],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Bontech"
+        }
+      }
+    </script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="فرزاد فروزان فر — Farzad Forouzanfar" />
+    <meta
+      property="og:description"
+      content="توسعه‌دهنده فول‌استک با تمرکز بر معماری امن و مقیاس‌پذیر با PHP، Laravel، React.js."
+    />
+    <meta
+      property="og:image"
+      content="https://farzadforouzanfar.ir/assets/farzad_forouzanfar.jpg"
+    />
+    <meta property="og:url" content="https://farzadforouzanfar.ir" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="./assets/farzad_forouzanfar.jpg" />
+    <meta name="twitter:title" content="فرزاد فروزان فر — Farzad Forouzanfar" />
+    <meta
+      name="twitter:description"
+      content="توسعه‌دهنده فول‌استک با تمرکز بر معماری امن و مقیاس‌پذیر. Laravel + Next.js + DevOps."
+    />
+    <meta
+      name="twitter:image"
+      content="https://farzadforouzanfar.ir/assets/farzad_forouzanfar.jpg"
     />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -563,7 +600,7 @@
 
           <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             <!-- Project Card -->
-             
+
             <div
               class="rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-xl hover:shadow-2xl transition group"
               data-animate
@@ -866,10 +903,19 @@
             <!-- Optional simple form (Formspree-ready) -->
             <form
               id="contactForm"
+              action="https://formsubmit.co/foruozanfar2000f@gmail.com"
+              method="POST"
               class="rounded-2xl border border-neutral-200 dark:border-white/10 p-6 bg-white/60 dark:bg-white/[0.03] glass space-y-4"
               data-animate
             >
               <div>
+                <input
+                  type="hidden"
+                  name="_redirect"
+                  value="https://farzadforouzanfar.ir/#contact"
+                />
+                <input type="text" name="_honey" style="display: none" />
+
                 <label for="name" class="block mb-1 text-sm">نام</label>
                 <input
                   id="name"
@@ -1051,6 +1097,42 @@
           formNote.textContent = "خطا در ارسال. لطفاً از ایمیل استفاده کن.";
         }
       });
+    </script>
+    <script>
+      const form = document.getElementById("contactForm");
+
+      form?.addEventListener("submit", function () {
+        // فرم پس از submit ریدایرکت میشه — اینو در حافظه ذخیره می‌کنیم
+        localStorage.setItem("toast", "sent");
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const toast = localStorage.getItem("toast");
+
+        if (toast === "sent") {
+          showToast("پیام شما با موفقیت ارسال شد 🎉", "success");
+          localStorage.removeItem("toast");
+        }
+      });
+
+      function showToast(msg, type = "success") {
+        const toast = document.createElement("div");
+        toast.className =
+          "fixed top-6 right-6 z-50 px-5 py-3 rounded-xl shadow-lg text-sm text-white " +
+          (type === "success"
+            ? "bg-green-600"
+            : type === "error"
+            ? "bg-red-600"
+            : "bg-neutral-800");
+
+        toast.textContent = msg;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          toast.classList.add("opacity-0");
+          setTimeout(() => toast.remove(), 600);
+        }, 4000);
+      }
     </script>
   </body>
 </html>
