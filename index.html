@@ -1066,37 +1066,6 @@
         .querySelectorAll("[data-animate]")
         .forEach((el) => revealObserver.observe(el));
 
-      // Contact form (Formspree-ready). Replace endpoint to enable.
-      const FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxx"
-      const contactForm = document.getElementById("contactForm");
-      const formNote = document.getElementById("formNote");
-      contactForm?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const data = Object.fromEntries(new FormData(contactForm).entries());
-        if (!FORMSPREE_ENDPOINT) {
-          formNote.textContent =
-            "فرم غیرفعال است. لطفاً از ایمیل بالا استفاده کن.";
-          formNote.classList.add("text-accent-500");
-          return;
-        }
-        try {
-          const res = await fetch(FORMSPREE_ENDPOINT, {
-            method: "POST",
-            headers: { Accept: "application/json" },
-            body: new FormData(contactForm),
-          });
-          if (res.ok) {
-            contactForm.reset();
-            formNote.textContent = "پیام با موفقیت ارسال شد. ممنون!";
-            formNote.classList.add("text-accent-500");
-          } else {
-            formNote.textContent =
-              "ارسال ناموفق بود. لطفاً بعداً تلاش کن یا ایمیل بزن.";
-          }
-        } catch (err) {
-          formNote.textContent = "خطا در ارسال. لطفاً از ایمیل استفاده کن.";
-        }
-      });
     </script>
     <script>
       const form = document.getElementById("contactForm");
