@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>فرزاد فروزانفر — توسعه‌دهنده فول‌استک</title>
+    <title>فرزاد فروزان فر — توسعه‌دهنده فول‌استک</title>
     <meta
       name="description"
       content="فرزاد فروزانفر | توسعه‌دهنده فول‌استک با تمرکز بر ساخت وب‌اپ‌های سریع، بسیار امن و مقیاس‌پذیر. رزومه، مهارت‌ها، پروژه‌ها و راه‌های ارتباطی."
@@ -108,11 +108,47 @@
     </script>
 
     <style>
+      .skill-tag {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.75rem;
+        background-color: rgba(255, 45, 32, 0.07);
+        color: #ff2d20;
+        font-weight: 500;
+        box-shadow: 0 0 0 1px rgba(255, 45, 32, 0.15);
+        transition: all 0.3s ease;
+      }
+      .skill-tag:hover {
+        background-color: rgba(255, 45, 32, 0.15);
+        transform: translateY(-2px);
+      }
+      .skill-tag img {
+        width: 20px;
+        height: 20px;
+        opacity: 0.9;
+        filter: grayscale(10%);
+      }
+      .dark .skill-tag {
+        background-color: rgba(255, 45, 32, 0.08);
+        color: #ffafa9;
+      }
+
+      .font-mono {
+        font-family: "Courier New", Courier, monospace;
+      }
+
       .btn-gradient {
         position: relative;
         border-radius: 0.75rem;
         isolation: isolate;
         overflow: hidden;
+      }
+
+      .glass {
+        backdrop-filter: blur(12px) !important;
+        background: rgba(255, 255, 255, 0.05) !important;
       }
 
       .btn-gradient::after {
@@ -152,6 +188,20 @@
           animation: none !important;
         }
       }
+      @keyframes ping-slow {
+        0% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      .animate-ping-slow {
+        animation: ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
     </style>
   </head>
 
@@ -174,13 +224,21 @@
           class="flex items-center justify-between h-16"
           aria-label="ناوبری اصلی"
         >
-          <a href="#hero" class="inline-flex items-center gap-2 group">
-            <span
-              class="inline-block w-8 h-8 rounded-lg bg-accent-500/10 ring-1 ring-accent-500/30 shadow-glow"
-            ></span>
-            <span class="font-semibold tracking-tight"
-              >Farzad<span class="text-accent-500">.</span></span
+          <a
+            href="#hero"
+            class="inline-flex items-center gap-2 group"
+            aria-current="page"
+          >
+            <!-- Glass Logo Icon -->
+            <div
+              class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 dark:bg-white/5 backdrop-blur-sm ring-1 ring-white/20 dark:ring-white/10 shadow-glow transition-all duration-300"
             >
+              <span
+                class="text-base font-mono font-bold text-accent-500 dark:text-accent-400 tracking-tighter"
+              >
+                &lt;/&gt;
+              </span>
+            </div>
           </a>
 
           <ul class="items-center hidden gap-1 md:flex">
@@ -346,12 +404,24 @@
                 فرزاد فروزانفر
                 <span class="block text-accent-500">توسعه‌دهنده فول‌استک</span>
               </h1>
-              <p class="text-lg text-neutral-600 dark:text-neutral-300">
-                تمرکز بر ساخت وب‌اپ‌های <b>سریع</b>، <b>بسیار امن</b> و
-                <b>مقیاس‌پذیر</b>. برنامه‌نویسی با ۴ سال تجربه مثبت هستم و به
-                یادگیری تازه‌ترین مفاهیم فناوری و افزایش سرعت عملکرد تشنه‌ام.
-                روی کارم وسواس دارم و تلاش می‌کنم هر چیزی را به بهترین شکل ممکن
-                پیاده‌سازی کنم. «کد تمیز» واقعاً حالم را خوب می‌کند.
+              <p
+                class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed"
+              >
+                توسعه‌دهنده فول‌استک با ۴ سال تجربه در طراحی و پیاده‌سازی
+                سیستم‌های وب با عملکرد بالا، معماری ماژولار و امنیت پیشرفته.
+                تمرکز اصلی‌ام بر توسعه APIهای سریع، صف‌های پیام‌رسانی،
+                پایگاه‌های داده مقیاس‌پذیر و رابط‌های کاربری مدرن است.
+              </p>
+
+              <p
+                class="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed"
+              >
+                رویکردم به توسعه نرم‌افزار مبتنی بر
+                <strong>کدنویسی تمیز، مستند، قابل نگهداری و مؤثر</strong> است.
+                از طراحی تا استقرار، ترکیب مناسبی از ابزارهای بک‌اند و فرانت‌اند
+                را برای رسیدن به بالاترین کیفیت فنی به‌کار می‌برم — از ساخت
+                سرویس‌های RESTful تا اجرای سیستم‌های Dockerized در محیط‌های
+                لینوکسی.
               </p>
 
               <div class="flex flex-wrap items-center gap-3">
@@ -407,20 +477,16 @@
 
             <div class="lg:col-span-5" data-animate>
               <div
-                class="relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-2xl border border-neutral-200 dark:border-white/10 bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-900 dark:to-neutral-800 shadow-xl"
+                class="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl shadow-xl"
               >
-                <!-- Placeholder portrait / logo area -->
-                <div class="absolute inset-0 grid place-items-center">
-                  <div class="text-center">
-                    <div
-                      class="w-24 h-24 mx-auto mb-4 rounded-xl bg-accent-500/10 ring-1 ring-accent-500/30 shadow-glow animate-floaty"
-                    ></div>
-                    <p class="text-sm text-neutral-500 dark:text-neutral-400">
-                      اینجا می‌توانی عکس پرتره یا لوگوی خودت را قرار بدهی
-                    </p>
-                  </div>
+                <div class="p-3 glass rounded-2xl shadow-glow">
+                  <img
+                    src="./assets/farzad_forouzanfar.jpg"
+                    alt="فرزاد فروزانفر - توسعه‌دهنده فول‌استک"
+                    class="w-full h-auto object-cover rounded-2xl border border-neutral-200 dark:border-white/10"
+                    loading="lazy"
+                  />
                 </div>
-                <img src="" alt="" loading="lazy" class="hidden" />
               </div>
             </div>
           </div>
@@ -430,94 +496,55 @@
       <!-- Skills -->
       <section
         id="skills"
-        class="relative border-t border-neutral-200 dark:border-white/10 scroll-mt-24"
+        class="py-16 border-t border-neutral-200 dark:border-white/10 scroll-mt-24"
       >
-        <div class="max-w-6xl px-4 py-16 mx-auto sm:py-20">
+        <div class="max-w-5xl mx-auto px-4">
           <div
-            class="flex items-center justify-between gap-4 mb-8"
-            data-animate
+            dir="ltr"
+            class="bg-white/80 dark:bg-black/80 text-red-400 font-mono p-6 rounded-2xl border border-red-500/20 shadow-2xl glass"
           >
-            <h2 class="text-2xl font-extrabold sm:text-3xl">مهارت‌ها</h2>
-            <span class="text-sm text-neutral-500 dark:text-neutral-400"
-              >Stack</span
-            >
-          </div>
+            <h2 class="text-xl font-bold mb-6 text-rose-300">
+              [ Terminal Mode: stack.skills.farzad ]
+            </h2>
+            <pre class="text-sm leading-relaxed text-red-600 font-mono">
+> Backend::
+    PHP 8.1+, Laravel 10.x, Redis (Cache & Queue), MySQL (InnoDB, Joins, Indexes)
+    High-performance APIs with Swoole & Hyperf (coroutine, event-loop, async tasks)
+    Message broker integration via RabbitMQ (AMQP, delayed queues)
+    Custom WordPress Plugin Development (Hooks, Filters, Shortcodes)
 
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- Backend -->
-            <div
-              class="rounded-2xl border border-neutral-200 dark:border-white/10 p-6 bg-white/60 dark:bg-white/[0.03] glass"
-              data-animate
-            >
-              <h3 class="mb-4 font-semibold">بک‌اند</h3>
-              <ul class="flex flex-wrap gap-2">
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  PHP
-                </li>
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  Laravel
-                </li>
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  Swoole / Hyperf
-                </li>
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  Redis
-                </li>
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  RabbitMQ
-                </li>
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  MySQL
-                </li>
-              </ul>
-            </div>
+> Frontend::
+    React.js (Hooks, Context, Router), jQuery (classic interactivity), TailwindCSS 3.x
+    Responsive UI, Form integration, Axios API binding
 
-            <!-- Frontend -->
-            <div
-              class="rounded-2xl border border-neutral-200 dark:border-white/10 p-6 bg-white/60 dark:bg-white/[0.03] glass"
-              data-animate
-            >
-              <h3 class="mb-4 font-semibold">فرانت‌اند</h3>
-              <ul class="flex flex-wrap gap-2">
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  React.js
-                </li>
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  Tailwind CSS
-                </li>
-              </ul>
-            </div>
+> DevOps::
+    Docker (NGINX + PHP-FPM + Redis), Docker Compose (multi-service env)
+    Local development orchestration, volume mounting, container optimization
 
-            <!-- DevOps -->
-            <div
-              class="rounded-2xl border border-neutral-200 dark:border-white/10 p-6 bg-white/60 dark:bg-white/[0.03] glass"
-              data-animate
+> MessageBroker::
+    AMQP protocol implementation with RabbitMQ
+    Durable queues, Retry patterns, Delayed messages
+
+> Database::
+    Relational: MySQL 8 (ACID, Eloquent ORM, Raw queries, Migrations)
+    KeyValue: Redis (TTL, Sets, Hashes, Pub/Sub)
+
+> API::
+    RESTful architecture with Resource Controllers, Sanctum token auth
+    Structured endpoints, standardized HTTP response codes
+    OpenAPI documentation (Swagger/Postman collections)
+
+> Queue::
+    Redis Queue (lightweight, fast)
+    RabbitMQ DurableQueue (priority queue, failover consumer logic)
+
+> CLI::
+    Artisan (command creation, queue:work, scheduler)
+    Composer (autoloading, PSR-4, dependency management)
+    Bash scripting (deployments, backups)
+    NPM / pnpm (frontend build tools, Tailwind CLI, Vite/Webpack)
+</pre
             >
-              <h3 class="mb-4 font-semibold">زیرساخت</h3>
-              <ul class="flex flex-wrap gap-2">
-                <li
-                  class="px-3 py-1 rounded-full bg-accent-500/10 text-accent-700 dark:text-accent-300 ring-1 ring-accent-500/30"
-                >
-                  Docker
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </section>
@@ -527,138 +554,141 @@
         id="projects"
         class="relative border-t border-neutral-200 dark:border-white/10 scroll-mt-24"
       >
-        <div class="max-w-6xl px-4 py-16 mx-auto sm:py-20">
-          <div
-            class="flex items-center justify-between gap-4 mb-8"
-            data-animate
-          >
-            <h2 class="text-2xl font-extrabold sm:text-3xl">
-              پروژه‌ها (نمونه برای جایگزینی)
+        <div class="max-w-6xl px-4 py-20 mx-auto sm:py-24">
+          <div class="mb-10" data-animate>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">
+              پروژه‌های من
             </h2>
-            <span class="text-sm text-neutral-500 dark:text-neutral-400"
-              >۳ مورد شاخص</span
-            >
           </div>
 
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <!-- Card 1 -->
-            <article
-              class="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] glass"
+          <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Project Card -->
+             
+            <div
+              class="rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-xl hover:shadow-2xl transition group"
               data-animate
             >
-              <div class="relative aspect-[16/10] overflow-hidden">
-                <img
-                  loading="lazy"
-                  alt="پروژه نمونه ۱"
-                  class="h-full w-full object-cover opacity-90 group-hover:scale-[1.02] transition will-change-transform"
-                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'><rect width='100%' height='100%' fill='%23f3f4f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%23999'>تصویر پروژه ۱</text></svg>"
-                />
+              <!-- Thumbnail (Placeholder) -->
+              <div
+                class="aspect-video overflow-hidden bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center"
+              >
                 <span
-                  class="absolute px-2 py-1 text-xs rounded-full top-3 right-3 bg-accent-500/10 text-accent-600 ring-1 ring-accent-500/30"
-                  >نمونه</span
+                  class="text-3xl text-neutral-400 dark:text-neutral-600 font-mono"
+                  >&lt;/&gt;</span
                 >
               </div>
-              <div class="p-5 space-y-3">
-                <h3 class="text-lg font-semibold">پروژه نمونه ۱</h3>
-                <p class="text-sm text-neutral-600 dark:text-neutral-300">
-                  توضیحات نمونه برای نمایش چیدمان کارت. این بخش را بعداً با
-                  جزئیات پروژه واقعی جایگزین کن.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >Laravel</span
-                  >
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >MySQL</span
-                  >
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >Redis</span
-                  >
-                </div>
-              </div>
-            </article>
 
-            <!-- Card 2 -->
-            <article
-              class="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] glass"
-              data-animate
-            >
-              <div class="relative aspect-[16/10] overflow-hidden">
-                <img
-                  loading="lazy"
-                  alt="پروژه نمونه ۲"
-                  class="h-full w-full object-cover opacity-90 group-hover:scale-[1.02] transition"
-                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'><rect width='100%' height='100%' fill='%23f3f4f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%23999'>تصویر پروژه ۲</text></svg>"
-                />
-                <span
-                  class="absolute px-2 py-1 text-xs rounded-full top-3 right-3 bg-accent-500/10 text-accent-600 ring-1 ring-accent-500/30"
-                  >نمونه</span
-                >
-              </div>
+              <!-- Content -->
               <div class="p-5 space-y-3">
-                <h3 class="text-lg font-semibold">پروژه نمونه ۲</h3>
-                <p class="text-sm text-neutral-600 dark:text-neutral-300">
-                  این کارت هم برای تست است. این متن بعداً با دستاوردها و
-                  لینک‌های واقعی جایگزین می‌شود.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >React</span
-                  >
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >Tailwind</span
-                  >
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >API</span
-                  >
-                </div>
-              </div>
-            </article>
+                <h3
+                  class="text-lg font-semibold text-neutral-800 dark:text-white text-center"
+                >
+                  PHP MVC Framework (Open Source)
+                </h3>
 
-            <!-- Card 3 -->
-            <article
-              class="group rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] glass"
-              data-animate
-            >
-              <div class="relative aspect-[16/10] overflow-hidden">
-                <img
-                  loading="lazy"
-                  alt="پروژه نمونه ۳"
-                  class="h-full w-full object-cover opacity-90 group-hover:scale-[1.02] transition"
-                  src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'><rect width='100%' height='100%' fill='%23f3f4f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='24' fill='%23999'>تصویر پروژه ۳</text></svg>"
-                />
-                <span
-                  class="absolute px-2 py-1 text-xs rounded-full top-3 right-3 bg-accent-500/10 text-accent-600 ring-1 ring-accent-500/30"
-                  >نمونه</span
+                <p
+                  class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed text-justify"
                 >
-              </div>
-              <div class="p-5 space-y-3">
-                <h3 class="text-lg font-semibold">پروژه نمونه ۳</h3>
-                <p class="text-sm text-neutral-600 dark:text-neutral-300">
-                  نمایش کارت سوم برای تکمیل ردیف. این محتوا موقت است.
+                  فریم‌ورک سبک و ماژولار برای پیاده‌سازی الگوی MVC در PHP که از
+                  صفر طراحی شده. این پروژه با هدف یادگیری عمیق‌تر معماری MVC
+                  توسعه داده شده و از ویژگی‌هایی مانند روتینگ ساده، جداسازی
+                  Web/API، اعتبارسنجی درخواست‌ها، امنیت پیش‌فرض (Rate Limiting)،
+                  و Docker پشتیبانی می‌کند.
                 </p>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >PHP</span
+
+                <ul
+                  dir="ltr"
+                  class="flex flex-wrap gap-2 text-xs text-accent-500 font-mono mt-2"
+                >
+                  <li>PHP 8+</li>
+                  <li>OOP</li>
+                  <li>Strategy Pattern</li>
+                  <li>Singleton</li>
+                  <li>PSR</li>
+                  <li>Dockerized</li>
+                </ul>
+
+                <div class="flex items-center gap-3 mt-4">
+                  <a
+                    href="https://github.com/FarzadForuozanfar/php_mvc_framework"
+                    target="_blank"
+                    class="text-sm text-accent-500 hover:underline"
                   >
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >Swoole</span
-                  >
-                  <span
-                    class="px-2 py-1 text-xs rounded-full bg-neutral-100 dark:bg-white/10"
-                    >Docker</span
-                  >
+                    GitHub
+                  </a>
                 </div>
               </div>
-            </article>
+            </div>
+
+            <div
+              class="rounded-2xl overflow-hidden border border-neutral-200 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-xl hover:shadow-2xl transition group"
+              data-animate
+            >
+              <!-- Thumbnail with hover image swap -->
+              <div
+                class="aspect-video overflow-hidden relative group rounded-t-xl shadow"
+              >
+                <!-- تصویر اصلی -->
+                <img
+                  src="https://mahdiui.ir/images/gashtook/screen/01.jpg"
+                  alt="Gashtook Screenshot"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 group-hover:opacity-0"
+                  loading="lazy"
+                />
+
+                <!-- تصویر دوم (ظاهر می‌شود هنگام هاور) -->
+                <img
+                  src="https://mahdiui.ir/images/gashtook/screen/06.jpg"
+                  alt="Gashtook Hover"
+                  class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- Content -->
+              <div class="p-5 space-y-3">
+                <h3
+                  class="text-lg font-semibold text-neutral-800 dark:text-white text-center"
+                >
+                  گشتوک — راهنمای گردشگری ایران
+                </h3>
+
+                <p
+                  class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed text-justify"
+                >
+                  یک وب‌اپلیکیشن PWA مبتنی بر <strong>Next.js</strong> و
+                  <strong>Laravel</strong> که اطلاعات گردشگری شهرهای ایران را
+                  به‌صورت ساختاریافته، آنلاین و آفلاین، در اختیار کاربران قرار
+                  می‌دهد. گشتوک با رابط تعاملی، نقشه‌، دسته‌بندی هوشمند مکان‌ها
+                  و قابلیت نصب به‌عنوان اپلیکیشن، تجربه‌ای کامل برای گردشگران
+                  داخلی فراهم می‌کند.
+                </p>
+
+                <ul
+                  dir="ltr"
+                  class="flex flex-wrap gap-2 text-xs text-accent-500 font-mono mt-2"
+                >
+                  <li>Next.js</li>
+                  <li>PWA</li>
+                  <li>Laravel RESTful API</li>
+                  <li>SSR</li>
+                  <li>Offline Mode</li>
+                  <li>Map & Search</li>
+                </ul>
+
+                <div class="flex items-center gap-3 mt-4">
+                  <a
+                    href="https://app.gashtook.com/fa"
+                    target="_blank"
+                    class="text-sm text-accent-500 hover:underline"
+                  >
+                    مشاهده وب‌سایت
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- More projects... -->
           </div>
         </div>
       </section>
@@ -771,14 +801,6 @@
                 />
               </svg>
             </a>
-            <p class="text-sm text-neutral-600 dark:text-neutral-400">
-              فایل را در مسیر
-              <code
-                class="px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-white/10"
-                >/assets/Farzad-Resume.pdf</code
-              >
-              قرار بده.
-            </p>
           </div>
         </div>
       </section>
